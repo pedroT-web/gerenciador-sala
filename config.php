@@ -1,7 +1,8 @@
 <?php
+$_ENV = parse_ini_file('.env');
 
-$dsn = 'mysql:dbname=db_gerenciador_salas;host=localhost';
-$usuario = 'root';
-$senha = '';
+$dsn = "mysql:dbname={$_ENV['BANCO']};host={$_ENV['HOST']}";
+$usuario = "{$_ENV['USUARIO']}";
+$senha = "{$_ENV['SENHA']}";
 
 $conn = new PDO($dsn, $usuario, $senha);
