@@ -9,10 +9,11 @@ $scriptConsulta = "SELECT
     ts.identificacao as 'nome_sala', 
     tt.nome as 'nome_docente', 
     tt.sigla as 'sigla_turma'
-    FROM tb_reservas_sala trs
+    FROM tb_reserva_sala trs
     INNER JOIN tb_sala ts ON trs.sala_id = ts.id
     INNER JOIN tb_turma tt ON trs.turma_id = tt.id
-    INNER JOIN tb_docente td ON trs.docente_id = td.id;";
+    INNER JOIN tb_docente td ON trs.docente_id = td.id
+    WHERE trs.deletado != 1";
 
 $resultados = $conn->query($scriptConsulta)->fetchAll();
 
@@ -39,7 +40,7 @@ $resultados = $conn->query($scriptConsulta)->fetchAll();
                     <td><?= $linha['sigla_turma'] ?></td>
                     <td><?= $linha['nome_docente'] ?></td>
                     <td>
-                        <a href="#" class="btn btn-danger">
+                        <a href="./reserva-delete.php?id_deletar=<?= $linha['id']?>" class="btn btn-danger">
                             <i class="bi bi-trash3-fill"></i>
                         </a>
                     </td>
