@@ -28,10 +28,7 @@ $scriptResultado = $conn->query($scriptSelect)->fetchALL();
                     <th scope="row"><?= $linhas['id'] ?></th>
                     <td><?= $linhas['identificacao'] ?></td>
                     <td>
-                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalAtualizar">
-                            <i class="bi bi-bookmark"></i> Editar
-                        </button>
-                        <a href="./modal-atualizar.php?id_editar=<?= $linhas['id'] ?>&&identificacao_sala=<?= $linhas['identificacao'] ?>&&qtd_alunos=<?= $linhas['quant_suporte_alunos'] ?>&&tipo_da_sala=<?= $linhas['tipo_sala'] ?>" class="btn btn-warning">
+                        <a href="./modal-atualizar.php?id_editar=<?= $linhas['id'] ?>&&identificacao_sala=<?= $linhas['identificacao'] ?>&&qtd_alunos=<?= $linhas['quant_suporte_alunos'] ?>&&tipo_da_sala=<?= $linhas['tipo_sala'] ?>" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalAtualizar" >
                             <i class="bi bi-pencil-square"></i>
                         </a>
                         <a href="./sala-deletar.php?id_deletar=<?= $linhas['id'] ?>" class="btn btn-danger">

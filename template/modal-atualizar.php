@@ -1,7 +1,9 @@
 <?php
 require './config.php';
 
-$script = "SELECT * FROM tb_sala ";
+// $id = $_GET['id_editar'];
+
+$script = "SELECT * FROM tb_sala";
 $resultado = $conn->query($script)->fetchALL();
 var_dump($resultado)
 ?>
