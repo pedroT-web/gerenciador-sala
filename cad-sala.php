@@ -2,6 +2,7 @@
 require('./config.php');
 include './template/header.php';
 include './template/modal-cadastro-sala.php';
+include './template/modal-atualizar.php';
 
 $scriptSelect = "SELECT * FROM tb_sala";
 $scriptResultado = $conn->query($scriptSelect)->fetchALL();
@@ -27,10 +28,10 @@ $scriptResultado = $conn->query($scriptSelect)->fetchALL();
                 <th scope="row"><?= $linhas['id'] ?></th>
                 <td><?= $linhas['identificacao'] ?></td>
                 <td>
-                    <a href="#" class="btn btn-warning">
+                    <a href="./modal-atualizar.php?id_editar=<?=$linhas['id']?>&&identificacao_sala=<?=$linhas['identificacao']?>&&qtd_alunos=<?=$linhas['quant_suporte_alunos']?>&&tipo_da_sala=<?=$linhas['tipo_sala']?>" class="btn btn-warning">
                         <i class="bi bi-pencil-square"></i>
                     </a>
-                    <a href="#" class="btn btn-danger">
+                    <a href="./sala-deletar.php?id_deletar=<?= $linhas['id'] ?>" class="btn btn-danger">
                         <i class="bi bi-trash3-fill"></i>
                     </a>
                 </td>
