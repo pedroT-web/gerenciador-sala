@@ -10,8 +10,8 @@ const ATIVADO = 1;
 $script = "UPDATE tb_sala SET desativado = :desativar WHERE id = :id";
 
 $scriptPreparar = $conn->prepare($script)->execute([
-":id" => $id,
-":desativar" => ATIVADO
+":desativar" => ATIVADO,
+":id" => $id
 ]);
 
 header("location:./cad-sala.php");

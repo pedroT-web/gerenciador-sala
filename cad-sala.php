@@ -4,7 +4,7 @@ include './template/header.php';
 include './template/modal-cadastro-sala.php';
 include './template/modal-atualizar.php';
 
-$scriptSelect = "SELECT * FROM tb_sala";
+$scriptSelect = "SELECT * FROM tb_sala WHERE desativado = 0";
 $scriptResultado = $conn->query($scriptSelect)->fetchALL();
 ?>
 
@@ -23,21 +23,26 @@ $scriptResultado = $conn->query($scriptSelect)->fetchALL();
             </tr>
         </thead>
         <tbody>
-            <?php foreach($scriptResultado as $linhas){ ?>
-            <tr>
-                <th scope="row"><?= $linhas['id'] ?></th>
-                <td><?= $linhas['identificacao'] ?></td>
-                <td>
-                    <a href="./modal-atualizar.php?id_editar=<?=$linhas['id']?>&&identificacao_sala=<?=$linhas['identificacao']?>&&qtd_alunos=<?=$linhas['quant_suporte_alunos']?>&&tipo_da_sala=<?=$linhas['tipo_sala']?>" class="btn btn-warning">
-                        <i class="bi bi-pencil-square"></i>
-                    </a>
-                    <a href="./sala-deletar.php?id_deletar=<?= $linhas['id'] ?>" class="btn btn-danger">
-                        <i class="bi bi-trash3-fill"></i>
-                    </a>
-                </td>
-            </tr>
+            <?php foreach ($scriptResultado as $linhas) { ?>
+                <tr>
+                    <th scope="row"><?= $linhas['id'] ?></th>
+                    <td><?= $linhas['identificacao'] ?></td>
+                    <td>
+                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalAtualizar">
+                            <i class="bi bi-bookmark"></i> Editar
+                        </button>
+                        <a href="./modal-atualizar.php?id_editar=<?= $linhas['id'] ?>&&identificacao_sala=<?= $linhas['identificacao'] ?>&&qtd_alunos=<?= $linhas['quant_suporte_alunos'] ?>&&tipo_da_sala=<?= $linhas['tipo_sala'] ?>" class="btn btn-warning">
+                            <i class="bi bi-pencil-square"></i>
+                        </a>
+                        <a href="./sala-deletar.php?id_deletar=<?= $linhas['id'] ?>" class="btn btn-danger">
+                            <i class="bi bi-trash3-fill"></i>
+                        </a>
+                    </td>
+                </tr>
 
         </tbody>
-        <?php } ?>
+
+        
+    <?php } ?>
     </table>
 </section>

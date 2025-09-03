@@ -1,17 +1,26 @@
+<?php
+require './config.php';
+
+$script = "SELECT * FROM tb_sala ";
+$resultado = $conn->query($script)->fetchALL();
+var_dump($resultado)
+?>
+
 <div class="modal fade" id="modalAtualizar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal Cadastro Sala</h1>
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal Editar Sala</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
 
                 <form action="./sala-atualizar.php" method="POST" id="form-sala-Atualizar">
+                    <?php foreach($resultado as $linha) { ?>
                     <div class="campo-sala d-flex gap-2 mt-2">
                         <label style="width: 20%" for="identificacao" class="fw-semibold my-auto">Identificacao:</label>
 
-                        <input type="text" class="form-control" placeholder="Informe o nome da sala" name="txtIdentificacao" id="identificacao">
+                        <input type="text" class="form-control" placeholder="Informe o nome da sala" name="txtIdentificacao" id="identificacao" value="<?= $linha['identificacao']?>">
                     </div>
                     <div class="campo-sala d-flex gap-2 mt-2">
                         <label style="width: 20%" for="qntd-aluno" class="fw-semibold my-auto">Quant. de alunos:</label>
@@ -30,6 +39,7 @@
                             <option value="Ateliê de Design">Ateliê de Design</option>
                         </select>
                     </div>
+                    <?php } ?>
                 </form>
             </div>
             <div class="modal-footer">
