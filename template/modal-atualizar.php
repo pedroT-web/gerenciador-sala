@@ -27,12 +27,12 @@ var_dump($resultado)
                     <div class="campo-sala d-flex gap-2 mt-2">
                         <label style="width: 20%" for="qntd-aluno" class="fw-semibold my-auto">Quant. de alunos:</label>
 
-                        <input type="number" class="form-control" placeholder="Qual a quantdidade de alunos suportados" name="txtQntdSuporteAlunos" id="qntd-aluno">
+                        <input type="number" class="form-control" placeholder="Qual a quantdidade de alunos suportados" name="txtQntdSuporteAlunos" id="qntd-aluno" value="<?= $linha['quant_suporte_alunos']?>">
                     </div>
                     <div class="campo-sala d-flex gap-2 mt-2">
                         <label for="drop-sala" class="fw-semibold my-auto">Sala:</label>
-                        <select id="tipo-sala" name="tipo-sala" class="form-select">
-                            <option selected>Selecione a Sala</option>
+                        <select id="tipo-sala" name="tipo-sala" class="form-select" >
+                            <option selected>Atual: <?= $linha['tipo_sala'] ?></option>
                             <option value="Convencional">Convencional</option>
                             <option value="Laboratório">Laboratório</option>
                             <option value="Laboratório Hardware">Laboratório Hardware</option>
@@ -48,7 +48,7 @@ var_dump($resultado)
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                     Fechar
                 </button>
-                <button type="submit" class="btn btn-primary" form="form-sala-atualizar">
+                <button type="submit" class="btn btn-primary" form="form-sala-atualizar" name="atualizar_cadastro">
                     Atualizar
                 </button>
             </div>

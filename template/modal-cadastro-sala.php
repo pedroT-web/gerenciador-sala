@@ -36,7 +36,7 @@
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                     Fechar
                 </button>
-                <button type="submit" class="btn btn-primary" form="form-sala-cadastro">
+                <button type="submit" class="btn btn-primary" form="form-sala-cadastro" name="cadastrar_sala">
                     Cadastar
                 </button>
             </div>
