@@ -2,7 +2,12 @@
 <html lang="pt-br">
 
 <head>
-    <?php require_once './config.php'; ?>
+    <?php
+    
+    require_once './config.php';
+    include './template/modal-reserva.php';
+    
+    ?>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +20,7 @@
 </head>
 
 <body>
+    
     <nav class="navbar navbar-expand-lg bg-light rounded mb-4">
         <div class="container">
             <div class="navbar-collapse d-lg-flex">
@@ -41,4 +47,4 @@
             </div>
         </div>
     </nav>
-    <?php include './template/modal-reserva.php' ?>
+    
